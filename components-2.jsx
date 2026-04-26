@@ -490,16 +490,33 @@ function LiveApps() {
 function Contact() {
   const [form, setForm] = useState2({ name: "", email: "", company: "", message: "" });
   const [sent, setSent] = useState2(false);
+  const [error, setError] = useState2("");
   const [submitting, setSubmitting] = useState2(false);
 
   const submit = async (e) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) return;
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 900));
-    setSent(true);
-    setSubmitting(false);
-    setTimeout(() => { setSent(false); setForm({ name: "", email: "", company: "", message: "" }); }, 4500);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form)
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSent(true);
+        setForm({ name: "", email: "", company: "", message: "" });
+        setTimeout(() => setSent(false), 5000);
+      } else {
+        setError(data.error || "Something went wrong. Please try again.");
+      }
+    } catch {
+      setError("Network error. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -537,6 +554,7 @@ function Contact() {
 
         <form className="form" onSubmit={submit}>
           {sent && <div className="form-msg success">✓ Thanks {form.name || "there"} — your message landed. I'll reply within a day.</div>}
+          {error && <div className="form-msg" style={{background:"rgba(224,78,42,0.12)",color:"#ff8a70",border:"1px solid rgba(224,78,42,0.3)"}}>{error}</div>}
           <div className="form-row">
             <div className="field">
               <label>Your name</label>
