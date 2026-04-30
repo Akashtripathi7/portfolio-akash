@@ -97,7 +97,7 @@ function Hero() {
             <a href="#projects" className="hv4-cta-primary">
               View Selected Work
               <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14M13 6l6 6-6 6"/>
+                <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </a>
             <a href="assets/Akash_Tripathi_Resume.pdf" className="hv4-cta-ghost" target="_blank" rel="noopener">
@@ -148,10 +148,10 @@ function Hero() {
             </div>
             <div className="hv4-chip hv4-chip-2">
               <div className="hv4-chip-icon" style={{ background: "rgba(42,157,143,0.15)", color: "#2A9D8F" }}>✦</div>
-              <div>
+              {/* <div>
                 <div className="hv4-chip-k">Status</div>
                 <div className="hv4-chip-v">Open to Work</div>
-              </div>
+              </div> */}
             </div>
             <div className="hv4-chip hv4-chip-3">
               <div className="hv4-chip-icon" style={{ background: "rgba(107,91,255,0.15)", color: "#6B5BFF" }}>◉</div>
@@ -302,7 +302,7 @@ function Skills() {
     { num: "/06", title: "Leadership", tags: ["Code reviews", "Mentorship", "Architecture", "Agile", "Cross-functional"] },
   ];
   return (
-    <section className="section" id="skills" style={{paddingTop: 0}}>
+    <section className="section" id="skills" style={{ paddingTop: 0 }}>
       <div className="wrap">
         <div className="section-head">
           <div>
