@@ -146,13 +146,13 @@ function Hero() {
                 <div className="hv4-chip-v">Flutter · Dart</div>
               </div>
             </div>
-            <div className="hv4-chip hv4-chip-2">
+            {/* <div className="hv4-chip hv4-chip-2">
               <div className="hv4-chip-icon" style={{ background: "rgba(42,157,143,0.15)", color: "#2A9D8F" }}>✦</div>
-              {/* <div>
+              <div>
                 <div className="hv4-chip-k">Status</div>
                 <div className="hv4-chip-v">Open to Work</div>
-              </div> */}
-            </div>
+              </div>
+            </div> */}
             <div className="hv4-chip hv4-chip-3">
               <div className="hv4-chip-icon" style={{ background: "rgba(107,91,255,0.15)", color: "#6B5BFF" }}>◉</div>
               <div>
